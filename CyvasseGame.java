@@ -17,7 +17,7 @@ import javax.swing.*;
  * @author William
  */
 public class CyvasseGame extends CyvasseBoard {
-
+//counts how many pieces total for each side
     static int nwking = 1;
     static int nwdragon = 1;
     static int nbking = 1;
@@ -44,6 +44,7 @@ public class CyvasseGame extends CyvasseBoard {
     }
 
     public static void main(String[] args) throws IOException {
+        //replaces null with nothing object
         for (int x = 0; x < Pieces.length; x++) {
             for (int y = 0; y < Pieces[0].length; y++) {
                 if (Pieces[y][x] == null) {
@@ -60,6 +61,8 @@ public class CyvasseGame extends CyvasseBoard {
         JScrollPane Pane1 = new JScrollPane();
         Pane1.setSize(new Dimension(600, 1000));
         Pane1.setLocation(1800, 0);
+        //Different Panels throughout the Frame
+        //Panel3 is the mouseListener
         JPanel Panel = new JPanel();
         JPanel Panel2 = new JPanel();
         JPanel Panel3 = new JPanel();
@@ -92,6 +95,7 @@ public class CyvasseGame extends CyvasseBoard {
         Frame.add(new CreateBoard());
         Frame.repaint();
         ImageIcon whiteKing = new ImageIcon(wKing);
+        //Buttons
         JButton WKing = new JButton(whiteKing);
         WKing.setBounds(1430, 0, 100, 100);
         WKing.setMargin(new Insets(0, 0, 0, 0));
@@ -217,6 +221,8 @@ public class CyvasseGame extends CyvasseBoard {
         Frame.repaint();
         Frame.setVisible(true);
         Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //Adding actionlisteners to all buttons
+        //Each actionlistener has a mouselistener to determine where the piece should be placed
         Clear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 cover =1;
@@ -1170,7 +1176,7 @@ public class CyvasseGame extends CyvasseBoard {
 
         startthegame.addActionListener(new ActionListener() {
             int party = 1;
-
+//          The game loop thread
             @Override
             public void actionPerformed(ActionEvent e) {
                 reveal =1;
@@ -1188,6 +1194,7 @@ public class CyvasseGame extends CyvasseBoard {
                         Panel2.add(player1);
                         Frame.repaint();
                         Panel3.addMouseListener(wListener);
+                        //moved true or false; if true continue, otherwise restart
                         while (true) {
                             if (!wListener.moved) {
                                 try {
@@ -1198,16 +1205,19 @@ public class CyvasseGame extends CyvasseBoard {
                             }
                             wListener.moved = false;
                             if (CyvasseGame.gameEnded(wking, bking) == false) {
+                                //check if the piece move is valid
                                 if (game.move(wListener.sourcex / 130, wListener.getTargetX() / 130, wListener.getSourceY() / 130, wListener.getTargetY() / 130, Pieces[wListener.getSourceY() / 130][wListener.getSourceX() / 130], Pieces[wListener.getTargetY() / 130][wListener.getTargetX() / 130], party) && game.canmove(wListener.sourcex / 130, wListener.targetx / 130, wListener.sourcey / 130, wListener.targety / 130, Pieces[wListener.sourcey / 130][wListener.sourcex / 130]) && game.rightplayer(Pieces[wListener.sourcey/130][wListener.sourcex/130], party)) {
                                     String whoseturn = party == 1 ? "Black's turn" : "White's turn";
                                     player1.setText(whoseturn);
                                     player1.setSize(200, 100);
                                     player1.setLocation(0, 0);
                                     player1.setFont(player1.getFont().deriveFont(32f));
+                                    //replace pieces
                                     Pieces[wListener.targety / 130][wListener.targetx / 130] = Pieces[wListener.sourcey / 130][wListener.sourcex / 130];
                                     Pieces[wListener.sourcey / 130][wListener.sourcex / 130] = Nothing;
                                     Frame.repaint();
                                     party = party % 2 + 1;
+                                    //checks if a side has won
                                     if (CyvasseGame.gameEnded(wking, bking)) {
                                         int a = 0;
                                         int b = 0;

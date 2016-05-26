@@ -66,6 +66,7 @@ public class CreateBoard extends JPanel {
     static BufferedImage bKing, bDragon, bRabble, bSpearmen, bCrossbow, bTrebuchet, bElephant, bHeavyHorse, bLightHorse, bMountains;
 
     public CreateBoard() {
+        //finds all the images
         try {
             wKing = ImageIO.read(new File("C:\\Users\\William\\Documents\\NetBeansProjects\\CyvasseGame\\src\\CyvasseGame\\CyvassePieces\\WhiteKing.jpg"));
         } catch (IOException ex) {
@@ -168,6 +169,7 @@ public class CreateBoard extends JPanel {
         }
     }
 
+    //draw the board
     public void paintComponent(Graphics g) {
         this.setBackground(Color.BLACK);
         super.paintComponent(g);
@@ -191,6 +193,7 @@ public class CreateBoard extends JPanel {
         g.setColor(Color.DARK_GRAY);
         g.fillRect(1300, 0, 130, 1750);
         g.fillRect(0, 1300, 1430, 130);
+        //draw pieces
         if (start == 1) {
             for (int x = 0; x < Pieces.length; x++) {
                 for (int y = 0; y < Pieces[0].length; y++) {

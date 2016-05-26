@@ -16,7 +16,7 @@ public class CyvassePiece extends CyvasseGame {
     int bstrength;
     String color;
     WayItMoves movetype;
-
+//enums to make CyvassePiece objects
     public CyvassePiece(PieceType Piece) {
         type = Piece;
         switch (type) {

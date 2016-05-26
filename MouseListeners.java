@@ -42,12 +42,14 @@ public class MouseListeners implements MouseListener{
                
                 }
     @Override
+    //get the mouse pressed location
                 public void mousePressed(MouseEvent e)
                 {
                     sourcex = e.getX();
                     sourcey = e.getY();
                 }
     @Override
+    //gets the mouse released location, and returns whether the piece actually moved from its starting location
                 public void mouseReleased(MouseEvent e)
                 {
                     targetx = e.getX();
