@@ -225,30 +225,30 @@ public class CyvasseBoard extends CreateBoard
         int totalbs = 0;
         if((x1>0 && x1<9) && (x2>0 && x2<9) && (y1>0 && y1<9) && ( y2>0 && y2<9))
         {
-            totalws = Pieces[x1][y1].wstrength + Pieces[x2-1][y2].wstrength + Pieces[x2+1][y2].wstrength + Pieces[x2][y2+1].wstrength + Pieces[x2][y2-1].wstrength;
-            totalws += Pieces[x1+1][y1+1].wstrength + Pieces[x1+1][y1-1].wstrength + Pieces[x1-1][y1-1].wstrength + Pieces[x1-1][y1+1].wstrength;
-            totalbs = Pieces[x1][y1].bstrength + Pieces[x2-1][y2].bstrength + Pieces[x2+1][y2].bstrength + Pieces[x2][y2+1].bstrength + Pieces[x2][y2-1].bstrength;
-            totalbs += Pieces[x1+1][y1+1].bstrength + Pieces[x1+1][y1-1].bstrength + Pieces[x1-1][y1-1].bstrength + Pieces[x1-1][y1+1].bstrength;  
+            totalws = Pieces[x1][y1].wstrength  + Pieces[x2][y2].wstrength+ Pieces[x2-1][y2].wstrength + Pieces[x2+1][y2].wstrength + Pieces[x2][y2+1].wstrength + Pieces[x2][y2-1].wstrength;
+            totalws += Pieces[x2+1][y2+1].wstrength + Pieces[x2+1][y2-1].wstrength + Pieces[x2-1][y2-1].wstrength + Pieces[x2-1][y2+1].wstrength;
+            totalbs = Pieces[x2][y2].bstrength + Pieces[x1][y1].bstrength +Pieces[x2-1][y2].bstrength + Pieces[x2+1][y2].bstrength + Pieces[x2][y2+1].bstrength + Pieces[x2][y2-1].bstrength;
+            totalbs += Pieces[x2+1][x2+1].bstrength + Pieces[x2+1][y2-1].bstrength + Pieces[x2-1][y2-1].bstrength + Pieces[x2-1][y2+1].bstrength;  
         }
         else if((y1==0 && y2==1) && (x1>0 && x1<9) && (x2>0 && x2<9))
         {
-            totalws = Pieces[x1][y1].wstrength + Pieces[x2][y2+1].wstrength + Pieces[x2][y2-1].wstrength + Pieces[x2+1][y2].wstrength + Pieces[x2+1][y2-1].wstrength + Pieces[x2+1][y2+1].wstrength;
-            totalbs = Pieces[x1][y1].bstrength + Pieces[x2][y2+1].bstrength + Pieces[x2][y2-1].bstrength + Pieces[x2+1][y2].bstrength + Pieces[x2+1][y2-1].bstrength + Pieces[x2+1][y2+1].bstrength;
+            totalws = Pieces[x1][y1].wstrength + Pieces[x2][y2].wstrength + Pieces[x2][y2+1].wstrength + Pieces[x2][y2-1].wstrength + Pieces[x2+1][y2].wstrength + Pieces[x2+1][y2-1].wstrength + Pieces[x2+1][y2+1].wstrength;
+            totalbs = Pieces[x2][y2].bstrength + Pieces[x1][y1].bstrength + Pieces[x2][y2+1].bstrength + Pieces[x2][y2-1].bstrength + Pieces[x2+1][y2].bstrength + Pieces[x2+1][y2-1].bstrength + Pieces[x2+1][y2+1].bstrength;
         }
         else if((y1==9 && y2==8) && (x1>0 && x1<9) && (x2>0 && x2<9))
         {
-            totalws = Pieces[x1][y1].wstrength + Pieces[x2][y2+1].wstrength + Pieces[x2][y2-1].wstrength + Pieces[x2-1][y2+1].wstrength + Pieces[x2-1][y2].wstrength + Pieces[x2-1][y2-1].wstrength;
-            totalbs = Pieces[x1][y1].bstrength + Pieces[x2][y2+1].bstrength + Pieces[x2][y2-1].bstrength + Pieces[x2-1][y2+1].bstrength + Pieces[x2-1][y2].bstrength + Pieces[x2-1][y2-1].bstrength;
+            totalws = Pieces[x1][y1].wstrength + Pieces[x2][y2].wstrength + Pieces[x2][y2+1].wstrength + Pieces[x2][y2-1].wstrength + Pieces[x2-1][y2+1].wstrength + Pieces[x2-1][y2].wstrength + Pieces[x2-1][y2-1].wstrength;
+            totalbs = Pieces[x2][y2].bstrength + Pieces[x1][y1].bstrength + Pieces[x2][y2+1].bstrength + Pieces[x2][y2-1].bstrength + Pieces[x2-1][y2+1].bstrength + Pieces[x2-1][y2].bstrength + Pieces[x2-1][y2-1].bstrength;
         }
         else if((x1==0 && x2==1) && (y1>0 && y1<9) && (y2>0 && y2<9))
         {
-            totalws = Pieces[x1][y1].wstrength + Pieces[x2][y2-1].wstrength + Pieces[x2-1][y2+1].wstrength + Pieces[x2-1][y2].wstrength + Pieces[x2-1][y2-1].wstrength + Pieces[x2+1][y2+1].wstrength + Pieces[x2+1][y2].wstrength + Pieces[x2+1][y2-1].wstrength; 
-            totalbs = Pieces[x1][y1].bstrength + Pieces[x2][y2-1].bstrength + Pieces[x2-1][y2+1].bstrength + Pieces[x2-1][y2].bstrength + Pieces[x2-1][y2-1].bstrength + Pieces[x2+1][y2+1].bstrength + Pieces[x2+1][y2].bstrength + Pieces[x2+1][y2-1].bstrength;
+            totalws = Pieces[x1][y1].wstrength + Pieces[x2][y2].wstrength + Pieces[x2][y2-1].wstrength + Pieces[x2-1][y2+1].wstrength + Pieces[x2-1][y2].wstrength + Pieces[x2-1][y2-1].wstrength + Pieces[x2+1][y2+1].wstrength + Pieces[x2+1][y2].wstrength + Pieces[x2+1][y2-1].wstrength; 
+            totalbs = Pieces[x2][y2].bstrength + Pieces[x1][y1].bstrength + Pieces[x2][y2-1].bstrength + Pieces[x2-1][y2+1].bstrength + Pieces[x2-1][y2].bstrength + Pieces[x2-1][y2-1].bstrength + Pieces[x2+1][y2+1].bstrength + Pieces[x2+1][y2].bstrength + Pieces[x2+1][y2-1].bstrength;
         }
         else if((y1==0 && y2==1) && (y1>0 && y1<9) && (y2>0 && y2<9))
         {
-            totalws = Pieces[x1][y1].wstrength + Pieces[x2][y2+1].wstrength + Pieces[x2-1][y2+1].wstrength + Pieces[x2-1][y2].wstrength + Pieces[x2-1][y2-1].wstrength + Pieces[x2+1][y2+1].wstrength + Pieces[x2+1][y2].wstrength + Pieces[x2+1][y2-1].wstrength;
-            totalbs = Pieces[x1][y1].bstrength + Pieces[x2][y2+1].bstrength + Pieces[x2-1][y2+1].bstrength + Pieces[x2-1][y2].bstrength + Pieces[x2-1][y2-1].bstrength + Pieces[x2+1][y2+1].bstrength + Pieces[x2+1][y2].bstrength + Pieces[x2+1][y2-1].bstrength;
+            totalws = Pieces[x1][y1].wstrength + Pieces[x2][y2].wstrength + Pieces[x2][y2+1].wstrength + Pieces[x2-1][y2+1].wstrength + Pieces[x2-1][y2].wstrength + Pieces[x2-1][y2-1].wstrength + Pieces[x2+1][y2+1].wstrength + Pieces[x2+1][y2].wstrength + Pieces[x2+1][y2-1].wstrength;
+            totalbs = Pieces[x2][y2].bstrength + Pieces[x1][y1].bstrength + Pieces[x2][y2+1].bstrength + Pieces[x2-1][y2+1].bstrength + Pieces[x2-1][y2].bstrength + Pieces[x2-1][y2-1].bstrength + Pieces[x2+1][y2+1].bstrength + Pieces[x2+1][y2].bstrength + Pieces[x2+1][y2-1].bstrength;
         }
             
         if((totalws>=totalbs) && player == 1)
